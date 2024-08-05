@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+
+before_install:
+  - docker build -t peter592/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run peter592/docker-react npm run test -- --coverage
